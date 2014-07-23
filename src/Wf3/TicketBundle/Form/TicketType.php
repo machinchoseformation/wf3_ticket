@@ -18,18 +18,17 @@ class TicketType extends AbstractType
             ->add('level', 'choice', array(
                     "label" => false,
                     "choices" => array(
-                        "1"=>"Prioritaire",
-                        "2"=>"Important",
-                        "3"=>"Secondaire"
+                        "1"=>"Moi d'abord",
+                        "2"=>"Dès que possible",
+                        "3"=>"Quand tu peux"
                     ),
-                    "expanded" => true
+                    "expanded" => false
                 ))
             ->add('note', null, array(
                 "required" => "false",
                 "label" => "Commentaire ?"
-
                 ))
-            ->add('Envoyer la demande !', 'submit')
+            ->add('Heeeelp!', 'submit')
         ;
     }
     

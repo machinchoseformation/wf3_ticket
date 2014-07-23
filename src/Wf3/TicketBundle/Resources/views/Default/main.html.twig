@@ -1,12 +1,6 @@
 {% extends "::base.html.twig" %}
 
-{% block form_row %}
-    <div class="form-group">
-        {{ form_label(form) }}
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
-    </div>
-{% endblock form_row %}
+{% form_theme form 'Wf3TicketBundle:Form:fields.html.twig' %}
 
 {% block body %}
     Bonjour {{app.user.username}} !
@@ -17,7 +11,12 @@
     </div>
 
     <h3>Nouvelle demande :</h3>
-    {{ form(form, {"attr": {"novalidate": "novalidate", "id":"wf3_ticketbundle_ticket"}}) }}
+    {{ form(form, {"attr": {
+        "novalidate": "novalidate", 
+        "id":"wf3_ticketbundle_ticket"
+        }
+    }) }}
+    
 {% endblock %}
 
 {% block javascripts %}
