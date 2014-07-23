@@ -3,17 +3,18 @@ security:
         in_memory:
             memory:
                 users:
+                        nouchine:   { password: yo, roles: 'ROLE_USER' }
                         ludovic:    { password: yo, roles: 'ROLE_USER' }
                         charles:    { password: yo, roles: 'ROLE_USER' }
                         sofia:      { password: yo, roles: 'ROLE_USER' }
                         cyril:      { password: yo, roles: 'ROLE_USER' }
-                        nelli:      { password: yo, roles: 'ROLE_USER' }
+                        nelly:      { password: yo, roles: 'ROLE_USER' }
                         slim:       { password: yo, roles: 'ROLE_USER' }
                         fabien:     { password: yo, roles: 'ROLE_USER' }
                         rozenn:     { password: yo, roles: 'ROLE_USER' }
+                        virgine:    { password: yo, roles: 'ROLE_USER' }
                         suresh:     { password: yo, roles: 'ROLE_USER' }
-                        suresh:     { password: yo, roles: 'ROLE_USER' }
-                        rihani:     { password: yo, roles: 'ROLE_USER' }
+                        halim:      { password: yo, roles: 'ROLE_USER' }
                         laurent:    { password: yo, roles: 'ROLE_USER' }
                         johann:     { password: yo, roles: 'ROLE_USER' }
                         lydia:      { password: yo, roles: 'ROLE_USER' }
