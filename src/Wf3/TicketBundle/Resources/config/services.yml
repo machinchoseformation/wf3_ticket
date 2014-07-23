@@ -1,0 +1,7 @@
+parameters:
+#    wf3_ticket.example.class: Wf3\TicketBundle\Example
+
+services:
+#    wf3_ticket.example:
+#        class: %wf3_ticket.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

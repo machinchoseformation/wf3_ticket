@@ -1,0 +1,9 @@
+<ul>
+{% for ticket in tickets %}
+    <li class="level_{{ ticket.level }}">{{ticket.dateCreated|date("H:i")}} <b>{{ ticket.student }}</b> ({{ticket.note}}) 
+        {% if app.user.username == ticket.student %}
+        <a class="resolve_btn" data-ticket_id="{{ticket.id}}" href="{{ url('wf3_ticket_mark_as_resolve', {'id' : ticket.id}) }}">Résolu</a>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

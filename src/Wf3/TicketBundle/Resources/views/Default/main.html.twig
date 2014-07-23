@@ -1,0 +1,43 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    Bonjour {{app.user.username}} !
+
+    <h3>File d'attente :</h3>
+    <div id="current_tickets">
+        {% render(url('wf3_ticket_current_ticket')) %}
+    </div>
+
+    <h3>Nouvelle demande :</h3>
+    {{ form(form) }}
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+
+    function updateTickets(){
+        $.ajax({
+            url: "{{ url('wf3_ticket_current_ticket') }}",
+            success: function(response){
+                $("#current_tickets").html(response);
+            }
+        });
+    }
+
+    $("body").on("click", "a.resolve_btn", function(e){
+        e.preventDefault();
+        $(this).parent("li").slideUp();
+        var href = $(this).attr("href");
+        $.ajax({
+            url: href,
+            success: function(response){
+                updateTickets();
+            }
+        });
+    });
+
+    window.setInterval(updateTickets, 3000);
+
+</script>
+{% endblock %}

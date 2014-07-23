@@ -1,0 +1,15 @@
+wf3_ticket_home:
+    path:     /
+    defaults: { _controller: Wf3TicketBundle:Default:home }
+
+wf3_ticket_main:
+    path:     /tickets/
+    defaults: { _controller: Wf3TicketBundle:Default:main }
+
+wf3_ticket_current_ticket:
+    path:     /tickets/current/
+    defaults: { _controller: Wf3TicketBundle:Default:currentTicket }
+
+wf3_ticket_mark_as_resolve:
+    path:     /tickets/resolve/{id}
+    defaults: { _controller: Wf3TicketBundle:Default:markAsResolve }

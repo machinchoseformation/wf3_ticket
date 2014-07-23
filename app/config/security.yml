@@ -1,0 +1,34 @@
+security:
+    providers:
+        in_memory:
+            memory:
+                users:
+                        ludovic:    { password: yo, roles: 'ROLE_USER' }
+                        charles:    { password: yo, roles: 'ROLE_USER' }
+                        sofia:      { password: yo, roles: 'ROLE_USER' }
+                        cyril:      { password: yo, roles: 'ROLE_USER' }
+                        nelli:      { password: yo, roles: 'ROLE_USER' }
+                        slim:       { password: yo, roles: 'ROLE_USER' }
+                        fabien:     { password: yo, roles: 'ROLE_USER' }
+                        rozenn:     { password: yo, roles: 'ROLE_USER' }
+                        suresh:     { password: yo, roles: 'ROLE_USER' }
+                        suresh:     { password: yo, roles: 'ROLE_USER' }
+                        rihani:     { password: yo, roles: 'ROLE_USER' }
+                        laurent:    { password: yo, roles: 'ROLE_USER' }
+                        johann:     { password: yo, roles: 'ROLE_USER' }
+                        lydia:      { password: yo, roles: 'ROLE_USER' }
+                        dimitri:    { password: yo, roles: 'ROLE_USER' }
+                        guillaume:  { password: yo, roles: 'ROLE_ADMIN' }
+
+    access_control:
+        - { path: ^/tickets/, roles: ROLE_ADMIN }
+
+    firewalls:
+        default:
+            pattern:   ^/
+            anonymous: ~
+            http_basic:
+                realm: "Tickets !"
+
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
