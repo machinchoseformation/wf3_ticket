@@ -1,5 +1,13 @@
 {% extends "::base.html.twig" %}
 
+{% block form_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endblock form_row %}
+
 {% block body %}
     Bonjour {{app.user.username}} !
 
@@ -9,7 +17,7 @@
     </div>
 
     <h3>Nouvelle demande :</h3>
-    {{ form(form) }}
+    {{ form(form, {"attr": {"novalidate": "novalidate", "id":"wf3_ticketbundle_ticket"}}) }}
 {% endblock %}
 
 {% block javascripts %}
@@ -27,7 +35,6 @@
 
     $("body").on("click", "a.resolve_btn", function(e){
         e.preventDefault();
-        $(this).parent("li").slideUp();
         var href = $(this).attr("href");
         $.ajax({
             url: href,

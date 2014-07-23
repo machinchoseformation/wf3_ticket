@@ -19,10 +19,13 @@ security:
                         johann:     { password: yo, roles: 'ROLE_USER' }
                         lydia:      { password: yo, roles: 'ROLE_USER' }
                         dimitri:    { password: yo, roles: 'ROLE_USER' }
-                        guillaume:  { password: yo, roles: 'ROLE_ADMIN' }
+                        guillaume:  { password: bla, roles: 'ROLE_ADMIN' }
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
 
     access_control:
-        - { path: ^/tickets/, roles: ROLE_ADMIN }
+        - { path: ^/tickets/, roles: ROLE_USER }
 
     firewalls:
         default:

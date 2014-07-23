@@ -43,18 +43,20 @@ class DefaultController extends Controller
     public function markAsResolveAction(Request $request, $id){
 
         $repo = $this->getDoctrine()->getRepository("Wf3TicketBundle:Ticket");
-        $ticket = $repo->findOneBy(array(
-                "id" => $id,
-                "student" => $this->getUser()->getUsername()
-            ));
+        $ticket = $repo->find($id);
 
         if ($ticket){
-            $ticket->setIsResolved(true);
-            $ticket->setDateResolved(new \DateTime());
+            if (
+                $this->getUser()->getUsername() == $ticket->getStudent() || 
+                $this->get('security.context')->isGranted('ROLE_ADMIN')
+                ){
+                $ticket->setIsResolved(true);
+                $ticket->setDateResolved(new \DateTime());
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($ticket);
-            $em->flush();
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($ticket);
+                $em->flush();
+            }
         }
 
         if ($request->isXmlHttpRequest()){

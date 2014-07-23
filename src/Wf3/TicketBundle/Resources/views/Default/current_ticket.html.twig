@@ -1,9 +1,34 @@
-<ul>
-{% for ticket in tickets %}
-    <li class="level_{{ ticket.level }}">{{ticket.dateCreated|date("H:i")}} <b>{{ ticket.student }}</b> ({{ticket.note}}) 
-        {% if app.user.username == ticket.student %}
-        <a class="resolve_btn" data-ticket_id="{{ticket.id}}" href="{{ url('wf3_ticket_mark_as_resolve', {'id' : ticket.id}) }}">Résolu</a>
-        {% endif %}
-    </li>
-{% endfor %}
-</ul>
+{% if tickets %}
+	<table class="table table-hover">
+		<tr>
+			<th>Date</th>
+			<th>Étudiant(e)</th>
+			<th>Commentaire</th>
+			<th>Actions</th>
+		</tr>
+	{% for ticket in tickets %}
+
+		 
+	{% set tr_class = "" %}
+		{% if ticket.level == 1 %}
+		{%	set tr_class = "danger" %}
+		{% elseif ticket.level == 2 %}
+		{%	set tr_class = "warning" %}
+		{% endif %}
+		
+
+	    <tr class="level_{{ ticket.level }} {{tr_class}}">
+	    	<td>{{ticket.dateCreated|date("H:i:s")}}</td>
+	    	<td>{{ ticket.student }}</td>
+	    	<td>{{ticket.note}}</td>
+	    	<td>
+	        {% if app.user.username == ticket.student or is_granted('ROLE_ADMIN') %}
+	        <a class="resolve_btn btn btn-info" data-ticket_id="{{ticket.id}}" href="{{ url('wf3_ticket_mark_as_resolve', {'id' : ticket.id}) }}">Résolu</a>
+	        {% endif %}
+	        </td>
+	    </tr>
+	{% endfor %}
+	</table>
+{% else %}
+	Aucune demande en cours.
+{% endif %}

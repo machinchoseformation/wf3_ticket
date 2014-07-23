@@ -24,7 +24,11 @@ class TicketType extends AbstractType
                     ),
                     "expanded" => true
                 ))
-            ->add('note')
+            ->add('note', null, array(
+                "required" => "false",
+                "label" => "Commentaire ?"
+
+                ))
             ->add('Envoyer la demande !', 'submit')
         ;
     }
