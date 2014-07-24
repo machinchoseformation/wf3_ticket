@@ -81,6 +81,12 @@ class DefaultController extends Controller
         }
     }
 
+    public function countResolvedAction(){
+        $repo = $this->getDoctrine()->getRepository("Wf3TicketBundle:Ticket");
+        $count = $repo->countResolved();
+        return $this->render('Wf3TicketBundle:Default:count_resolved.html.twig', array("count" => $count));
+    }
+
     private function handleCreateTicketForm($request, $form, $ticket){
         $form->handleRequest($request);
 

@@ -26,4 +26,13 @@ class TicketRepository extends EntityRepository
         return $currentTickets;
     }
 
+    public function countResolved(){
+        $count = $this->createQueryBuilder('t')
+                 ->select('COUNT(t)')
+                 ->andWhere('t.isResolved = 1')
+                 ->getQuery()
+                 ->getSingleScalarResult();
+        return $count;
+    }
+
 }

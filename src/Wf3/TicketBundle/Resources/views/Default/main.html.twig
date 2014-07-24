@@ -21,6 +21,9 @@
         }
     }) }}
  </div>   
+ <div class="row">
+    <span id="resolved_count">{% render(url('wf3_ticket_count_resolved')) %}</span>
+ </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -28,6 +31,7 @@
 <script>
 //utilisé dans main.js
 var updateTicketsUrl = "{{ url('wf3_ticket_current_ticket') }}";
+var countResolvedUrl = "{{ url('wf3_ticket_count_resolved') }}";
 </script>
 <script src="{{asset('js/main.js')}}"></script>
 {% endblock %}

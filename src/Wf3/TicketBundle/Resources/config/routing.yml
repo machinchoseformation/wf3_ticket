@@ -13,3 +13,7 @@ wf3_ticket_current_ticket:
 wf3_ticket_mark_as_resolve:
     path:     /tickets/resolve/{id}
     defaults: { _controller: Wf3TicketBundle:Default:markAsResolve }
+
+wf3_ticket_count_resolved:
+    path:     /tickets/count_resolved/
+    defaults: { _controller: Wf3TicketBundle:Default:countResolved }
