@@ -4,10 +4,8 @@
 
 {% block body %}
 
-{% if app.user %}
-Bonjour {{app.user.username|capitalize}} ! 
-<a href="{{ path('logout') }}">Déconnexion</a>
-{% endif %}
+    Bonjour {{app.user.username|capitalize}} ! 
+    <a href="{{ path('logout') }}">Déconnexion</a>
 
     <h3>File d'attente :</h3>
     <div id="current_tickets">
