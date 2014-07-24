@@ -3,7 +3,11 @@
 {% form_theme form 'Wf3TicketBundle:Form:fields.html.twig' %}
 
 {% block body %}
-    Bonjour {{app.user.username}} !
+
+{% if app.user %}
+Bonjour {{app.user.username|capitalize}} ! 
+<a href="{{ path('logout') }}">Déconnexion</a>
+{% endif %}
 
     <h3>File d'attente :</h3>
     <div id="current_tickets">

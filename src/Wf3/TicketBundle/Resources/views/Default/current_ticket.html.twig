@@ -19,11 +19,11 @@
 
 	    <tr class="level_{{ ticket.level }} {{tr_class}}">
 	    	<td>{{ticket.dateCreated|date("H:i:s")}}</td>
-	    	<td>{{ ticket.student }}</td>
+	    	<td>{{ ticket.student|capitalize }}</td>
 	    	<td>{{ticket.note}}</td>
 	    	<td>
 	        {% if app.user.username == ticket.student or is_granted('ROLE_ADMIN') %}
-	        <a class="resolve_btn btn btn-info" data-ticket_id="{{ticket.id}}" href="{{ url('wf3_ticket_mark_as_resolve', {'id' : ticket.id}) }}">Résolu</a>
+	        <a class="resolve_btn btn btn-info btn-xs" data-ticket_id="{{ticket.id}}" href="{{ url('wf3_ticket_mark_as_resolve', {'id' : ticket.id}) }}"><span class="glyphicon glyphicon-ok-sign"></span> Résolu</a>
 	        {% endif %}
 	        </td>
 	    </tr>

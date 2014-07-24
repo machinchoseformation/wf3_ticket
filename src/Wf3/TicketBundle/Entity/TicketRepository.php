@@ -18,7 +18,7 @@ class TicketRepository extends EntityRepository
                 ->select("t")
                 ->andWhere("t.isResolved = false")
                 ->addOrderBy("t.level", "ASC")
-                ->addOrderBy("t.dateCreated", "DESC")
+                ->addOrderBy("t.dateCreated", "ASC")
                 ->getQuery()
                 ;
 
