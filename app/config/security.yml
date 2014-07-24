@@ -12,7 +12,7 @@ security:
                         slim:       { password: yo, roles: 'ROLE_USER' }
                         fabien:     { password: yo, roles: 'ROLE_USER' }
                         rozenn:     { password: yo, roles: 'ROLE_USER' }
-                        virgine:    { password: yo, roles: 'ROLE_USER' }
+                        virginie:   { password: yo, roles: 'ROLE_USER' }
                         suresh:     { password: yo, roles: 'ROLE_USER' }
                         halim:      { password: yo, roles: 'ROLE_USER' }
                         laurent:    { password: yo, roles: 'ROLE_USER' }
