@@ -3,22 +3,24 @@
 {% form_theme form 'Wf3TicketBundle:Form:fields.html.twig' %}
 
 {% block body %}
-
+<div class="row">
     Bonjour {{app.user.username|capitalize}} ! 
     <a href="{{ path('logout') }}">Déconnexion</a>
-
-    <h3>File d'attente :</h3>
+</div>
+<div class="row">
+    <h4>File d'attente :</h4>
     <div id="current_tickets">
         {% render(url('wf3_ticket_current_ticket')) %}
     </div>
-
-    <h3>Nouvelle demande :</h3>
+</div>
+<div class="row">
+    <h4>Nouvelle demande :</h4>
     {{ form(form, {"attr": {
         "novalidate": "novalidate", 
         "id":"wf3_ticketbundle_ticket"
         }
     }) }}
-    
+ </div>   
 {% endblock %}
 
 {% block javascripts %}
