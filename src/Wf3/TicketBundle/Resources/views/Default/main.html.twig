@@ -24,6 +24,8 @@
  <div class="row">
     <span id="resolved_count">{% render(url('wf3_ticket_count_resolved')) %}</span>
  </div>
+
+ <audio id="beep" src="{{ asset('mp3/BEEP2.WAV') }}"></audio>
 {% endblock %}
 
 {% block javascripts %}

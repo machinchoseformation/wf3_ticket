@@ -89,7 +89,7 @@ class Ticket
      */
     public function setLevel($level)
     {
-        $this->level = $level;
+        $this->level = strip_tags($level);
 
         return $this;
     }
@@ -181,7 +181,7 @@ class Ticket
      */
     public function setNote($note)
     {
-        $this->note = $note;
+        $this->note = strip_tags($note);
 
         return $this;
     }

@@ -17,18 +17,18 @@
 		{% endif %}
 		
 
-	    <tr class="level_{{ ticket.level }} {{tr_class}}">
+	    <tr class="level_{{ ticket.level }} {{tr_class}} ticket_tr">
 	    	<td>{{ticket.dateCreated|date("H:i:s")}}</td>
 	    	<td>{{ ticket.student|capitalize }}</td>
 	    	<td>{{ticket.note}}</td>
 	    	<td>
 	        {% if app.user.username == ticket.student or is_granted('ROLE_ADMIN') %}
-	        <a class="resolve_btn btn btn-info btn-xs" data-ticket_id="{{ticket.id}}" href="{{ url('wf3_ticket_mark_as_resolve', {'id' : ticket.id}) }}"><span class="glyphicon glyphicon-ok-sign"></span> OK !</a>
+	        <a class="resolve_btn btn btn-info btn-xs" data-ticket_id="{{ticket.id}}" href="{{ url('wf3_ticket_mark_as_resolve', {'id' : ticket.id}) }}">OK !</a>
 	        {% endif %}
 	        </td>
 	    </tr>
 	{% endfor %}
 	</table>
 {% else %}
-	Aucune demande en cours.
+	<p>Aucune demande en cours.</p>
 {% endif %}

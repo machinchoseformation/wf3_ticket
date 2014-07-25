@@ -6,6 +6,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use Wf3\TicketBundle\Entity\Ticket;
 use Wf3\TicketBundle\Form\TicketType;
@@ -38,7 +39,7 @@ class DefaultController extends Controller
         $this->handleCreateTicketForm($request, $form, $ticket);
 
         $params = array(
-            "form" => $form->createView(),
+            "form" => $form->createView()
         );
         return $this->render('Wf3TicketBundle:Default:main.html.twig', $params);
     }
