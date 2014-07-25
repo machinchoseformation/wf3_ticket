@@ -3,26 +3,38 @@
 {% form_theme form 'Wf3TicketBundle:Form:fields.html.twig' %}
 
 {% block body %}
-<div class="row">
-    Bonjour {{app.user.username|capitalize}} ! 
-    <a href="{{ path('logout') }}">Déconnexion</a>
-</div>
-<div class="row">
-    <h4>File d'attente :</h4>
-    <div id="current_tickets">
-        {% render(url('wf3_ticket_current_ticket')) %}
+<div class="row top">
+    <div class="col-xs-6">
+        <h2>Tickets !</h2>
+    </div>
+    <div class="col-xs-6 text-right logout">
+        <p>
+        Yo {{app.user.username|capitalize}} | 
+        <a href="{{ path('logout') }}">Déconnexion</a>
+        </p>
     </div>
 </div>
 <div class="row">
-    <h4>Nouvelle demande :</h4>
-    {{ form(form, {"attr": {
-        "novalidate": "novalidate", 
-        "id":"wf3_ticketbundle_ticket"
-        }
-    }) }}
- </div>   
- <div class="row">
-    <span id="resolved_count">{% render(url('wf3_ticket_count_resolved')) %}</span>
+    <div class="col-md-8">
+        <h4>File d'attente :</h4>
+        <div id="current_tickets">
+            {% render(url('wf3_ticket_current_ticket')) %}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h4>Nouvelle demande :</h4>
+        {{ form(form, {"attr": {
+            "novalidate": "novalidate", 
+            "id":"wf3_ticketbundle_ticket"
+            }
+        }) }}
+    </div>
+</div>
+
+ <div class="row bottom">
+    <div class="col-xs-12 text-center">
+        <span id="resolved_count">{% render(url('wf3_ticket_count_resolved')) %}</span>
+    </div>
  </div>
 
 {% endblock %}

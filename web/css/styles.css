@@ -1,3 +1,22 @@
+html, body {
+	font-family: 'Oswald', sans-serif;
+}
+
 li.level_1 {background-color: red}
 li.level_2 {background-color: white}
 li.level_3 {background-color: green}
+
+.top, .bottom {
+	color: #FFF;
+	padding-bottom: 10px;
+	background-color: #2c3e50;
+}
+
+.logout {
+	margin-top: 26px;
+}
+
+.bottom {
+	padding-top: 10px;
+	margin-top: 30px;
+}
