@@ -1,5 +1,4 @@
     var lastCount = 0;
-    var beep = document.getElementById("beep");
 
     function updateTickets(){
         $.ajax({
@@ -9,8 +8,6 @@
                 currentTicketCount = $(response).find('tr.ticket_tr').length;
                 if (currentTicketCount > lastCount){
                     lastCount = currentTicketCount;
-                    console.log("play sound");
-                    jBeep("C:/beep.wav");
                 }
             }
         });
