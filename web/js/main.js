@@ -1,7 +1,6 @@
     var lastCount = 0;
     var beep = document.getElementById("beep");
 
-
     function updateTickets(){
         $.ajax({
             url: updateTicketsUrl,
@@ -26,6 +25,16 @@
         });
     }
 
+    
+    function updateResolvedCountByDay(){
+        $.ajax({
+            url: countResolvedByDayUrl,
+            success: function(response){
+                $("#resolved_count_by_day").html(response);
+            }
+        });
+    }
+
     $("body").on("click", "a.resolve_btn", function(e){
         e.preventDefault();
         updateResolvedCount();
@@ -40,3 +49,4 @@
 
     window.setInterval(updateTickets, 3000);
     window.setInterval(updateResolvedCount, 5000);
+    window.setInterval(updateResolvedCountByDay, 5000);

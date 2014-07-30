@@ -33,7 +33,8 @@
 
  <div class="row bottom">
     <div class="col-xs-12 text-center">
-        <span id="resolved_count">{% render(url('wf3_ticket_count_resolved')) %}</span>
+        <span id="resolved_count">{% render(url('wf3_ticket_count_resolved')) %}</span><br />
+        <span id="resolved_count_by_day">{% render(url('wf3_ticket_count_resolved_by_day')) %}</span>
     </div>
  </div>
 
@@ -45,6 +46,7 @@
 //utilisé dans main.js
 var updateTicketsUrl = "{{ url('wf3_ticket_current_ticket') }}";
 var countResolvedUrl = "{{ url('wf3_ticket_count_resolved') }}";
+var countResolvedByDayUrl = "{{ url('wf3_ticket_count_resolved_by_day') }}";
 </script>
 <script src="{{asset('js/main.js')}}"></script>
 {% endblock %}

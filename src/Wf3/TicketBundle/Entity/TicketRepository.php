@@ -30,9 +30,23 @@ class TicketRepository extends EntityRepository
         $count = $this->createQueryBuilder('t')
                  ->select('COUNT(t)')
                  ->andWhere('t.isResolved = 1')
+                 ->andWhere('t.student != :admin')
                  ->getQuery()
+                 ->setParameter('admin', 'guillaume')
                  ->getSingleScalarResult();
         return $count;
+    }
+
+    public function countResolvedByDay(){
+        $em = $this->getEntityManager();
+        $counts = $em->createQuery('SELECT COUNT(t) as c, SUBSTRING(t.dateResolved, 1, 11) as day
+                                        FROM Wf3\TicketBundle\Entity\Ticket t
+                                        WHERE t.isResolved = 1 
+                                        AND t.student != :admin 
+                                        GROUP BY day')
+                 ->setParameter('admin', 'guillaume')
+                 ->getResult();
+        return $counts;
     }
 
 }

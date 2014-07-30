@@ -47,7 +47,6 @@ class DefaultController extends Controller
     public function currentTicketAction(){
         $repo = $this->getDoctrine()->getRepository("Wf3TicketBundle:Ticket");
         $currentTickets = $repo->getCurrentTickets();
-
         $params = array(
             "tickets" => $currentTickets
         );
@@ -86,6 +85,12 @@ class DefaultController extends Controller
         $repo = $this->getDoctrine()->getRepository("Wf3TicketBundle:Ticket");
         $count = $repo->countResolved();
         return $this->render('Wf3TicketBundle:Default:count_resolved.html.twig', array("count" => $count));
+    }
+
+    public function countResolvedByDayAction(){
+        $repo = $this->getDoctrine()->getRepository("Wf3TicketBundle:Ticket");
+        $counts = $repo->countResolvedByDay();
+        return $this->render('Wf3TicketBundle:Default:count_resolved_by_day.html.twig', array("counts" => $counts));
     }
 
     private function handleCreateTicketForm($request, $form, $ticket){

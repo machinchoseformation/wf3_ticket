@@ -17,3 +17,7 @@ wf3_ticket_mark_as_resolve:
 wf3_ticket_count_resolved:
     path:     /tickets/count_resolved/
     defaults: { _controller: Wf3TicketBundle:Default:countResolved }
+
+wf3_ticket_count_resolved_by_day:
+    path:     /tickets/count_resolved_by_day/
+    defaults: { _controller: Wf3TicketBundle:Default:countResolvedByDay }
